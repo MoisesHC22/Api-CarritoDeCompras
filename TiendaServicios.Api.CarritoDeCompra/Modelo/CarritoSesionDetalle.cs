@@ -11,6 +11,10 @@ namespace TiendaServicios.Api.CarritoDeCompra.Modelo
         [Required]
         public string ProductoSeleccionado { get; set; }
         [Required]
+        public int Cantidad { get; set; }
+        [Required]
+        public decimal TotalProducto { get; set; }
+        [Required]
         public int CarritoSesionId { get; set; }
         public CarritoSesion carritoSesion { get; set; }
     }

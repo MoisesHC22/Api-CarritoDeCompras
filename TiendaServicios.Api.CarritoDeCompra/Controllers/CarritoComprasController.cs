@@ -5,7 +5,7 @@ using TiendaServicios.Api.CarritoDeCompra.Aplicaction;
 
 namespace TiendaServicios.Api.CarritoDeCompra.Controllers
 {
-    [Route("api/[Controller]")]
+    [Route("[Controller]")]
     [ApiController]
     public class CarritoComprasController : ControllerBase
     {
@@ -16,13 +16,13 @@ namespace TiendaServicios.Api.CarritoDeCompra.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
+        [HttpPost, Route("Crear")]
         public async Task<ActionResult<Unit>> Crear(Nuevo.Ejecuta data)
         {
             return await _mediator.Send(data);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet, Route("GetCarrito")]
         public async Task<ActionResult<CarritoDto>> GetCarrito(int id)
         {
             return await _mediator.Send(new Consulta.Ejecuta { CarritoSessionId = id });

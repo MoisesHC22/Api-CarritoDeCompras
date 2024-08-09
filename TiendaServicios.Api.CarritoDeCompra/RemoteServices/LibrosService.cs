@@ -24,8 +24,9 @@ namespace TiendaServicios.Api.CarritoCompra.RemoteServices
             {
                 //creamos nuestro objeto que se comunicará con los endpoint o las api
                 var cliente = httpClient.CreateClient("Libros");
+
                 //nos comunicamos con nuestros endpoint que estamos solicitando
-                var response = await cliente.GetAsync($"GetCupon/{LibroId}"); //devuelve un jso tipo response
+                var response = await cliente.GetAsync($"/Libro/GetLibro?id={LibroId}"); //devuelve un jso tipo response
                 if (response.IsSuccessStatusCode)
                 {
                     var contenido = await response.Content.ReadAsStringAsync();//leemos el contenido de la respuesta
